@@ -1,0 +1,110 @@
+.grid-container {
+    display: grid;
+    grid-template-areas: "header header"
+        "aside main"
+        "footer footer";
+    margin: 200px;
+}
+
+.grid-container-form {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.flexbox-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flexbox-container a {
+    width: 100px;
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: #305496;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+
+.flexbox-container a:hover {
+    background-color: #182c50;
+}
+
+header {
+    grid-area: header;
+    border: 1px solid;
+    background-color: #305496;
+    color: white;
+}
+
+header h1 {
+    text-align: center;
+}
+
+aside {
+    grid-area: aside;
+    border: 1px solid;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+}
+
+aside img {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+}
+
+main {
+    grid-area: main;
+    border: 1px solid;
+    padding: 50px;
+}
+
+main form {
+    border: 2px solid;
+    padding: 20px;
+}
+
+form button {
+    grid-column: 2;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+    border: none;
+    background-color: #305496;
+}
+
+form button:hover {
+    background-color: #182c50;
+}
+
+main fieldset {
+    border: none;
+}
+
+main legend {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+main input {
+    border-radius: 6px;
+    height: 20px;
+    margin-bottom: 5px;
+}
+
+footer {
+    grid-area: footer;
+    border: 1px solid;
+    background-color: #305496;
+    color: white;
+}
+
+footer p {
+    text-align: center;
+}
