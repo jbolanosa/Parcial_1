@@ -3,7 +3,7 @@
     grid-template-areas: "header header"
         "aside main"
         "footer footer";
-    margin: 200px;
+    grid-template-columns: 20% 80%;
 }
 
 .grid-container-form {
