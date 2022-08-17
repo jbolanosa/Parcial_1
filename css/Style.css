@@ -42,7 +42,6 @@ html, body{
 
 header {
     grid-area: header;
-    border: 1px solid;
     background-color: #305496;
     color: white;
 }
@@ -53,10 +52,10 @@ header h1 {
 
 aside {
     grid-area: aside;
-    border: 1px solid;
     text-align: center;
     padding-top: 20px;
     padding-bottom: 20px;
+    border-right: 3px solid;
 
 }
 
@@ -68,7 +67,6 @@ aside img {
 
 main {
     grid-area: main;
-    border: 1px solid;
     padding: 50px;
 }
 
@@ -112,7 +110,6 @@ main input {
 
 footer {
     grid-area: footer;
-    border: 1px solid;
     background-color: #305496;
     color: white;
 }
