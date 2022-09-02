@@ -1,145 +1,170 @@
-html, body{
-    width: 100%;
-    height: 100%;
-    margin: 0;
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
 }
 
 .grid-container {
-    min-height: 100%;
-    font-family:Arial, Helvetica, sans-serif;
-    display: grid;
-    grid-template-areas: "header header"
-        "nav nav"
-        "aside main"
-        "footer footer";
-    grid-template-columns: 20% 80%;
-    grid-template-rows: auto auto 1fr auto
-}
-
-.grid-container-form {
-    display: grid;
-    grid-template-columns: 50% 50%;
-}
-
-.flexbox-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.flexbox-container a {
-    width: 100px;
-    padding: 5px;
-    margin-bottom: 10px;
-    background-color: #305496;
-    text-align: center;
-    text-decoration: none;
-    color: white;
-}
-
-.flexbox-container a:hover {
-    background-color: #182c50;
+  min-height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  display: grid;
+  grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "footer";
+  grid-template-rows: auto auto 1fr auto;
 }
 
 header {
-    grid-area: header;
-    padding: 20px 0px;
-    color: white;
-    text-align: center;
+  grid-area: header;
+  padding: 20px 0px;
+  color: white;
+  text-align: center;
 }
-.logo{
-    width: 250px;
+
+.logo {
+  width: 250px;
 }
+
 nav {
-    grid-area: nav;
+  grid-area: nav;
 }
 
-ul{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #14529b;
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #14529b;
 }
 
-li{
-    float: left;
-
+li {
+  float: left;
 }
 li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
-li a:hover{
-    background-color: white;
-    color: black;
-}
-
-aside {
-    grid-area: aside;
-    text-align: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-right: 3px solid;
-
-}
-
-.center{
-    margin-left: auto;
-    margin-right: auto;
-    width: 100px;
+li a:hover {
+  background-color: white;
+  color: black;
 }
 
 main {
-    grid-area: main;
-    padding: 50px;
+  grid-area: main;
+  padding: 50px;
 }
 
-#form-registro{
-    border: 2px solid;
-    padding: 20px;
-    width: 500px;
-    margin-right: auto;
+.flex-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-container input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid;
+}
+
+.flex-container button {
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid;
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+  background-color: #14529b;
+}
+
+.flex-container label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.ancho-form {
+    max-width: 600px;
     margin-left: auto;
+    margin-right: auto;
 }
 
-form button {
-    grid-column: 2;
-    width: 100%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    color: white;
-    border: none;
-    background-color: #305496;
+.form-registro fieldset {
+  border-radius: 5px;
+  border: 1px solid;
 }
 
-form button:hover {
-    background-color: #182c50;
+.form-registro legend {
+  font-weight: bold;
+  font-size: 25px;
+  margin-bottom: 5px;
+  text-align: center;
 }
 
-fieldset {
-    border: none;
-}
 
-main legend {
-    text-align: center;
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-main input {
-    border-radius: 6px;
-    margin-bottom: 5px;
-
-}
 
 footer {
-    grid-area: footer;
-    background-color: #14529b;
-    color: white;
-    text-align: center;
+  grid-area: footer;
+  background-color: #14529b;
+  color: white;
+  text-align: center;
+}
+
+/*Pagina gestionarProductos*/
+.contenedor-tabla{
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tabla-productos{
+  border-collapse: collapse;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+}
+
+.contenedor-flex{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100px;
+}
+
+#tabla-productos th{
+  padding: 10px;
+  color: white;
+}
+
+#tabla-productos td{
+  padding: 20px;
+}
+
+.imagen-producto{
+  width: 180px;
+}
+
+.btn-agregar-carrito{
+  height: 40px;
+  width: 200px;
+  background-color: #3c87ef;
+  border: none;
+  color: white;
+}
+
+.btn-agregar-carrito:hover{
+  background-color: #255ba5;
+}
+
+#tabla-productos thead{
+  background-color: #7074ff;
+}
+
+h1{
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
 }
