@@ -3,55 +3,61 @@ let carrito = [];
 let producto;
 let miLocalStorage = window.localStorage;
 
-function agregarProductoCarrito(codigo){
-    let cantidad = document.getElementById("cantidad-" + codigo).value;
-    let productoEncontrado = catalogo.find(producto => producto.codigo == codigo);
+function agregarProductoCarrito(codigo) {
+  let cantidad = document.getElementById("cantidad-" + codigo).value;
+  let productoEncontrado = catalogo.find(
+    (producto) => producto.codigo == codigo
+  );
 
-    let productoCarrito = {
-        producto: productoEncontrado,
-        cantidad: cantidad,
-        subtotal: cantidad * productoEncontrado.precio
-    }
+  let productoCarrito = {
+    producto: productoEncontrado,
+    cantidad: cantidad,
+    subtotal: cantidad * productoEncontrado.precio,
+  };
 
-    carrito.push(productoCarrito);
-    console.log(carrito);
-    miLocalStorage.setItem("carrito", JSON.stringify(carrito));
+  carrito.push(productoCarrito);
+  console.log(carrito);
+  miLocalStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
 function agregarProductoCatalogo(codigo, nombre, precio) {
-    
-    if(catalogo.find(producto => producto.codigo == codigo) != undefined){
-        alert("El codigo de producto ya existe");
-        return;
-    }
+    let elementoCodigo = document.getElementById("codigo");
+    let elementoNombre = document.getElementById("nombre");
+    let elementoPrecio = document.getElementById("precio");
+    let elementoImagen = document.getElementById("imagen");
 
-    
-    producto = {
-        codigo: codigo,
-        nombre: nombre,
-        precio: precio
-    }
+    if(elementoCodigo.te)
 
-    catalogo.push(producto);
-    miLocalStorage.setItem("catalogo", JSON.stringify(catalogo));
+
+  if (catalogo.find((producto) => producto.codigo == codigo) != undefined) {
+    alert("El codigo de producto ya existe");
+    return;
+  }
+
+  producto = {
+    codigo: codigo,
+    nombre: nombre,
+    precio: precio,
+  };
+
+  catalogo.push(producto);
+  miLocalStorage.setItem("catalogo", JSON.stringify(catalogo));
 }
 
 function llenarCatalogo() {
-    if(miLocalStorage.length == 0){
-        return;
-    }
-    catalogo = JSON.parse(miLocalStorage.getItem("catalogo"));
-    let tbody = document.createElement("tbody");
-    tbody.setAttribute("id", "tabla-contenido");
+  if (miLocalStorage.length == 0) {
+    return;
+  }
+  catalogo = JSON.parse(miLocalStorage.getItem("catalogo"));
+  let tbody = document.createElement("tbody");
+  tbody.setAttribute("id", "tabla-contenido");
 
-    catalogo.forEach(producto => {
+  catalogo.forEach((producto) => {
+    let fila = document.createElement("tr");
+    fila.setAttribute("id", producto.codigo);
+    fila.setAttribute("name", producto.codigo);
 
-        let fila = document.createElement("tr");
-        fila.setAttribute("id", producto.codigo);
-        fila.setAttribute("name", producto.codigo);
-
-        fila.innerHTML =
-            `
+    fila.innerHTML = `
         <td style="text-align: center;">
             <span>${producto.codigo}</span>
         </td>
@@ -73,10 +79,9 @@ function llenarCatalogo() {
         <td style="text-align: center;">
             <img src="img/${producto.codigo}.webp" alt="Error" class="imagen-producto">
         </td>
-        `
+        `;
 
-        tbody.appendChild(fila);
-    });
-    document.getElementById("tabla-productos").appendChild(tbody);
-
+    tbody.appendChild(fila);
+  });
+  document.getElementById("tabla-productos").appendChild(tbody);
 }
