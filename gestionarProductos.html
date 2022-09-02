@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js"></script>
     <title>Pepsi Store</title>
   </head>
 
@@ -29,7 +30,7 @@
         <form action="" class="form-registro ancho-form">
           <fieldset>
             <legend>Información producto</legend>
-            <div class="flex-container ancho-form">
+            <div class="flex-container ancho-form" id="div-form-agregar-producto">
               <label for="codigo">Codigo</label>
               <input type="text" id="codigo" placeholder="Codigo" required />
               <label for="nombre">Nombre</label>
@@ -38,7 +39,7 @@
               <input type="number" id="precio" placeholder="Precio" required />
               <label for="imagen">Elegir imagen:</label>
               <input type="file" id="imagen" accept="image/jpeg" required />
-              <button type="button">Agregar</button>
+              <button type="button" onclick="agregarProductoCatalogo();/*llenarCatalogo();*/">Agregar</button>
             </div>
           </fieldset>
         </form>

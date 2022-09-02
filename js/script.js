@@ -20,28 +20,44 @@ function agregarProductoCarrito(codigo) {
   miLocalStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
-function agregarProductoCatalogo(codigo, nombre, precio) {
-    let elementoCodigo = document.getElementById("codigo");
-    let elementoNombre = document.getElementById("nombre");
-    let elementoPrecio = document.getElementById("precio");
-    let elementoImagen = document.getElementById("imagen");
+function agregarProductoCatalogo() {
+  let codigoProducto = document.getElementById("codigo").value;
+  let nombreProducto = document.getElementById("nombre").value;
+  let precioProducto = document.getElementById("precio").value;
+  let imagenProducto = document.getElementById("imagen").files;
 
-    if(elementoCodigo.te)
-
+  if (
+    codigoProducto.value == "" ||
+    nombreProducto.value == "" ||
+    precioProducto.value == "" ||
+    imagenProducto.length == 0
+  ) {
+    alert("Todos los campos deben llenarse");
+    return;
+  }
 
   if (catalogo.find((producto) => producto.codigo == codigo) != undefined) {
     alert("El codigo de producto ya existe");
     return;
   }
 
-  producto = {
-    codigo: codigo,
-    nombre: nombre,
-    precio: precio,
-  };
+  let reader = new FileReader();
+  reader.onload = () => {
+    let srcData = reader.result;
+    producto = {
+      codigo: codigoProducto,
+      nombre: nombreProducto,
+      precio: precioProducto,
+      imagen: srcData
+    };
+  
+    catalogo.push(producto);
+    miLocalStorage.setItem("catalogo", JSON.stringify(catalogo));
 
-  catalogo.push(producto);
-  miLocalStorage.setItem("catalogo", JSON.stringify(catalogo));
+  };
+  reader.readAsDataURL(imagenProducto[0]);
+
+  
 }
 
 function llenarCatalogo() {
@@ -49,6 +65,7 @@ function llenarCatalogo() {
     return;
   }
   catalogo = JSON.parse(miLocalStorage.getItem("catalogo"));
+  imagenes = JSON.parse(miLocalStorage.getItem("imagenes"));
   let tbody = document.createElement("tbody");
   tbody.setAttribute("id", "tabla-contenido");
 
@@ -77,7 +94,7 @@ function llenarCatalogo() {
             </div>
         </td>
         <td style="text-align: center;">
-            <img src="img/${producto.codigo}.webp" alt="Error" class="imagen-producto">
+            <img src="${producto.imagen}" alt="Error" class="imagen-producto">
         </td>
         `;
 
