@@ -48,16 +48,13 @@ function agregarProductoCatalogo() {
       codigo: codigoProducto,
       nombre: nombreProducto,
       precio: precioProducto,
-      imagen: srcData
+      imagen: srcData,
     };
-  
+
     catalogo.push(producto);
     miLocalStorage.setItem("catalogo", JSON.stringify(catalogo));
-
   };
   reader.readAsDataURL(imagenProducto[0]);
-
-  
 }
 
 function llenarCatalogo() {
